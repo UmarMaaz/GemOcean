@@ -2,7 +2,7 @@
    GEMOCEAN — Service Worker (High Reliability & Performance Caching)
    ========================================================================== */
 
-const CACHE_NAME = 'gemocean-v1.1';
+const CACHE_NAME = 'gemocean-v1.2';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -14,6 +14,14 @@ const STATIC_ASSETS = [
   './contact.html',
   './css/style.css',
   './js/main.js',
+  './favicon.ico',
+  './favicon.svg',
+  './favicon-16x16.png',
+  './favicon-32x32.png',
+  './favicon-48x48.png',
+  './apple-touch-icon.png',
+  './android-chrome-192x192.png',
+  './site.webmanifest',
   './assets/ruby.jpg',
   './assets/emerald.jpg',
   './assets/sapphire.jpg',
@@ -49,8 +57,6 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   // Only handle GET requests for same-origin or fonts/images
   if (event.request.method !== 'GET') return;
-
-  const url = new URL(event.request.url);
 
   // Stale-While-Revalidate for local assets and HTML pages
   event.respondWith(
