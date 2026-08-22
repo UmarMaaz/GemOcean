@@ -1148,3 +1148,388 @@ section{ padding:6.5rem 0; }
   font-family:monospace;
 }
 
+/* ==========================================================================
+   ADVANCED MOBILE RESPONSIVENESS & TOUCH ERGONOMICS
+   ========================================================================== */
+
+/* Universal touch optimizations */
+button, a, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Tablet & Mobile Breakpoints (<= 860px) */
+@media (max-width:860px){
+  :root{
+    --nav-h: 70px;
+    --nav-h-scrolled: 60px;
+  }
+  
+  .wrap{
+    padding:0 1.25rem;
+  }
+
+  .nav-actions .btn{
+    display:none; /* Clean up navbar space on mobile */
+  }
+
+  .icon-btn.search-desktop{
+    display:flex;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--hairline-soft);
+    align-items:center;
+    justify-content:center;
+  }
+  .icon-btn.search-desktop svg{
+    width:16px;
+    height:16px;
+  }
+
+  .hamburger{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    padding:9px 6px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--hairline-soft);
+  }
+  .hamburger span{
+    position:relative;
+    width:100%;
+    height:1.5px;
+    background:var(--ivory);
+    margin:2.5px 0;
+    transition:all 280ms ease;
+  }
+  .hamburger span:nth-child(1),
+  .hamburger span:nth-child(2),
+  .hamburger span:nth-child(3){ top:auto; }
+  .hamburger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-panel{
+    width:min(86vw, 340px);
+    height:100vh;
+    height:100dvh;
+    max-height:100dvh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:calc(var(--nav-h) + 1rem) 1.5rem max(2rem, env(safe-area-inset-bottom));
+  }
+  .mobile-panel a{
+    font-size:1.25rem;
+    padding:0.9rem 0;
+  }
+
+  /* Section padding adjustments */
+  section{
+    padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+  }
+
+  .section-head{
+    margin-bottom: 2rem;
+  }
+  .section-head h2{
+    font-size: clamp(1.75rem, 6vw, 2.3rem);
+  }
+
+  .split{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .split img{
+    aspect-ratio: 4/3;
+    max-height: 380px;
+  }
+
+  .detail-grid{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .detail-grid .img-frame{
+    position: static;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .detail-actions{
+    flex-direction: column;
+    width: 100%;
+  }
+  .detail-actions .btn,
+  .detail-actions .btn-whatsapp-solid{
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-band{
+    padding: 3.8rem 0;
+  }
+}
+
+/* Smartphone Breakpoints (<= 600px) */
+@media (max-width:600px){
+  :root{
+    --topbar-h: 34px;
+    --nav-h: 64px;
+    --nav-h-scrolled: 56px;
+  }
+
+  /* Smooth Topbar on compact screens */
+  .topbar{
+    padding: 0 0.5rem;
+  }
+  .topbar-track{
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    gap: 0.75rem;
+    animation: topbarMarquee 24s linear infinite;
+  }
+  @keyframes topbarMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .brand-mark{
+    width: 28px;
+    height: 28px;
+  }
+  .brand-name{
+    font-size: 1.2rem;
+  }
+  .brand-sub{
+    font-size: 0.5rem;
+    letter-spacing: 0.22em;
+    margin-top: 3px;
+  }
+
+  /* Hero adjustments */
+  .hero{
+    height: auto;
+    min-height: 560px;
+    height: calc(100svh - var(--topbar-h));
+    padding: calc(var(--nav-h) + 1rem) 0 2.5rem;
+  }
+  .hero-content{
+    padding: 0 1.25rem;
+  }
+  .hero-title{
+    font-size: clamp(2rem, 8.5vw, 2.9rem);
+    line-height: 1.12;
+    margin-top: 0.9rem;
+  }
+  .hero-sub{
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+  .hero-actions{
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 1.6rem;
+  }
+  .hero-actions .btn{
+    width: 100%;
+    text-align: center;
+    padding: 0.85rem 1.4rem;
+  }
+  .scroll-cue{
+    display: none; /* remove clutter on small screens */
+  }
+
+  /* Page Hero (interior pages) */
+  .page-hero{
+    height: auto;
+    min-height: 260px;
+    padding-bottom: 2.2rem;
+  }
+  .page-hero h1{
+    font-size: clamp(2rem, 7.5vw, 2.7rem);
+  }
+
+  /* Pillars */
+  .pillars{
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    padding-top: 1.8rem;
+  }
+  .pillar{
+    padding-left: 1rem;
+    border-left: 2px solid var(--hairline);
+  }
+  .pillar h3{
+    font-size: 1.18rem;
+  }
+  .pillar p{
+    font-size: 0.86rem;
+  }
+
+  /* Gemstone Cards */
+  .gem-grid{
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .gem-card .img-wrap{
+    aspect-ratio: 16/11;
+  }
+  .gem-card .body{
+    padding: 1.2rem 1.25rem 1.4rem;
+  }
+  .gem-card h3{
+    font-size: 1.35rem;
+  }
+
+  /* Spec Table */
+  .spec-table{
+    margin-top: 1.8rem;
+  }
+  .spec-row{
+    font-size: 0.82rem;
+    padding: 0.75rem 0;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Contact Page & Inputs */
+  .contact-info{
+    padding: 1.5rem 1.25rem;
+  }
+  .form-field{
+    margin-bottom: 1.1rem;
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea{
+    font-size: 16px !important; /* Prevents iPhone Safari auto-zoom */
+    padding: 0.8rem 0.9rem;
+    border-radius: 4px;
+  }
+
+  /* Search Modal on Mobile */
+  .search-modal-backdrop{
+    padding: 0.5rem;
+    align-items: flex-start;
+  }
+  .search-modal{
+    max-height: calc(100dvh - 1rem);
+    border-radius: 8px;
+    margin-top: 0.25rem;
+  }
+  .search-bar{
+    padding: 0.85rem 1rem;
+  }
+  .search-input{
+    font-size: 16px; /* Prevents auto zoom */
+  }
+  .search-filters{
+    padding: 0.6rem 0.9rem;
+    gap: 0.35rem;
+  }
+  .search-filter-chip{
+    font-size: 0.62rem;
+    padding: 0.3rem 0.65rem;
+  }
+  .search-results-list{
+    padding: 0.5rem;
+    max-height: calc(100dvh - 220px);
+  }
+  .search-result-card{
+    padding: 0.65rem 0.75rem;
+    gap: 0.75rem;
+  }
+  .search-result-thumb,
+  .search-result-thumb-placeholder{
+    width: 44px;
+    height: 44px;
+  }
+  .search-result-title{
+    font-size: 1.05rem;
+  }
+  .search-result-snippet{
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+  .search-footer{
+    padding: 0.6rem 1rem;
+    font-size: 0.64rem;
+  }
+  .search-kbd-group{
+    display: none; /* Hide keyboard shortcut hints on mobile touch */
+  }
+
+  /* Floating WhatsApp Widget on Mobile */
+  .whatsapp-float-container{
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+  .whatsapp-float-btn{
+    width: 52px;
+    height: 52px;
+  }
+  .whatsapp-float-btn svg{
+    width: 26px;
+    height: 26px;
+  }
+  .whatsapp-tooltip{
+    display: none;
+  }
+  .whatsapp-popup-card{
+    position: fixed;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: max(4.6rem, calc(env(safe-area-inset-bottom) + 4.6rem));
+    width: auto;
+    max-width: 380px;
+    margin: 0 auto;
+    max-height: calc(85dvh - 4.6rem);
+    overflow-y: auto;
+    border-radius: 12px;
+  }
+
+  /* Footer on Mobile */
+  .site-footer{
+    padding: 3.5rem 0 0;
+  }
+  .footer-top{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+  }
+  .footer-col h4{
+    margin-bottom: 0.8rem;
+  }
+  .footer-col ul li{
+    margin-bottom: 0.65rem;
+  }
+  .footer-col ul li a{
+    display: inline-block;
+    padding: 0.2rem 0;
+    font-size: 0.86rem;
+  }
+  .footer-bottom{
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.4rem 0 max(1.4rem, env(safe-area-inset-bottom));
+    font-size: 0.72rem;
+  }
+}
+
+/* Extra Compact Phones (<= 380px) */
+@media (max-width:380px){
+  .brand-name{ font-size: 1.05rem; }
+  .brand-mark{ width: 24px; height: 24px; }
+  .hero-title{ font-size: 1.85rem; }
+  .stat-row{ grid-template-columns: 1fr; gap: 1.2rem; }
+  .btn, .btn-whatsapp-solid{ font-size: 0.66rem; padding: 0.8rem 1.1rem; }
+}
+
+

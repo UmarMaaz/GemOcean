@@ -240,6 +240,7 @@
 
   function openSearchModal() {
     if (!searchBackdrop || !searchInput) return;
+    toggleMenu(true);
     searchBackdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
     setTimeout(function(){
