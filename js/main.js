@@ -1,12 +1,12 @@
 /* ==========================================================================
    GEMOCEAN — Core JavaScript Engine
-   Vanilla JS • Performance Optimized • Fast Search • WhatsApp Integration (+923338021790)
+   Vanilla JS • Performance Optimized • Fast Search • WhatsApp Integration (+923143030244)
    ========================================================================== */
 
 (function(){
   'use strict';
 
-  var WA_PHONE = '923338021790';
+  var WA_PHONE = '923143030244';
   var WA_BASE = 'https://wa.me/' + WA_PHONE;
 
   /* ==========================================================================
@@ -451,7 +451,7 @@
   });
 
   /* ==========================================================================
-     8. WHATSAPP LIVE FLOATING WIDGET & TALK / CHAT ACTIONS (+923338021790)
+     8. WHATSAPP LIVE FLOATING WIDGET & TALK / CHAT ACTIONS (+923143030244)
      ========================================================================== */
   var waContainer = document.getElementById('whatsappFloatContainer');
   var waFloatBtn = document.getElementById('whatsappFloatBtn');
@@ -478,7 +478,7 @@
     });
   }
 
-  // Pre-configured Quick Action prompts for WhatsApp (+923338021790)
+  // Pre-configured Quick Action prompts for WhatsApp (+923143030244)
   document.querySelectorAll('[data-wa-topic]').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
